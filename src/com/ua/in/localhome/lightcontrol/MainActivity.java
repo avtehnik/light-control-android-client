@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends Activity implements OnClickListener  {
 
+	boolean[] out ;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class MainActivity extends Activity implements OnClickListener  {
             for (int j = 0; j < 2; j++) {
                 Button btnTag = new Button(this);
                 btnTag.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                btnTag.setText("Button " + (j + 1 + (i * 4 )));
+                btnTag.setText(" " + (j + 1 + (i * 4 )));
                 btnTag.setId(btnid);
                 btnTag.setOnClickListener(handler);
                 row.addView(btnTag);
