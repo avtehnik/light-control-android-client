@@ -14,14 +14,49 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainActivity extends Activity implements OnClickListener  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         
+        View.OnClickListener handler = new View.OnClickListener() {
+            public void onClick(View v) {
+            	ASAS aa = new ASAS();
+        		
+       			Log.d("test" , "on");
+       	    	aa.execute("ON");
+        	    	
+            	Log.d("test" , "clik 1"+v.getId());
+            	
+            	
+            }
+        };
+        
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        int btnid = 0;
+        for (int i = 0; i < 5; i++) {
+            LinearLayout row = new LinearLayout(this);
+            row.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+
+            for (int j = 0; j < 2; j++) {
+                Button btnTag = new Button(this);
+                btnTag.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                btnTag.setText("Button " + (j + 1 + (i * 4 )));
+                btnTag.setId(btnid);
+                btnTag.setOnClickListener(handler);
+                row.addView(btnTag);
+                btnid++;
+            }
+            layout.addView(row);
+        }
+        setContentView(layout);
+        //setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -30,6 +65,12 @@ public class MainActivity extends Activity implements OnClickListener  {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
+    
+    
+
+
+
+    
     
     private class ASAS extends AsyncTask<String, Void, Void>{
 
@@ -43,17 +84,13 @@ public class MainActivity extends Activity implements OnClickListener  {
 		@Override
 		protected Void doInBackground(String... task) {
 			try {
-
-				//String message = new StringBuilder().append((char) msg_length).append((char) b1).append((char) b2).toString();
-				String message = Character.toChars(3).toString()+Character.toChars(255).toString()+Character.toChars(255).toString();
-				  
 				final int server_port = 1099;  
 				final DatagramSocket s = new DatagramSocket();  
 				final InetAddress local = InetAddress.getByName("192.168.1.4");  
-				  
-				byte[] messageBytes = message.getBytes();  
-				
-			    messageBytes[0] = (byte) 2;
+
+
+				byte[] messageBytes = new byte[3];
+				messageBytes[0] = (byte) 2;
 				
 				if(task[0] == "ON"){
 				    messageBytes[1] = (byte) 255;
@@ -64,7 +101,7 @@ public class MainActivity extends Activity implements OnClickListener  {
 				    messageBytes[1] = (byte) 0;
 				    messageBytes[2] = (byte) 0;
 				}
-				Character.toChars(3);
+				
 				DatagramPacket p = new DatagramPacket(messageBytes, 3, local, server_port);  
 				  
 				s.send(p);  
@@ -87,6 +124,20 @@ public class MainActivity extends Activity implements OnClickListener  {
 			return null;
 		}
     	
+    }
+    
+    private byte[] boolsAsBytes(boolean[] data) {
+    	byte[] out = new byte[(data.length / 8) + 2];
+    	out[0] = (byte) (out.length - 1);
+    	
+    	for (int i = 0, j = out.length, k = 7; i < data.length; i++) {
+    		out[j] |= (data[i] ? 1 : 0) << k--;
+    	    if (k < 0) {
+    	    	j++;
+    	    	k = 7;
+    	    }
+    	}
+    	return out;
     }
     
     public void ligthControlOnClick(View v){
