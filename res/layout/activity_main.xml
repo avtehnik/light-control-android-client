@@ -3,24 +3,384 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
-
-    <Button
-        android:id="@+id/all_off"
-        android:layout_width="match_parent"
+<Button
+        android:id="@+id/lamp25"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:onClick="ligthControlOnClick"
-        android:text="OFF" />
-
-    <Button
-        android:id="@+id/all_on"
-        android:layout_width="match_parent"
+        android:text="25" />
+<Button
+        android:id="@+id/lamp26"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/all_off"
-        android:layout_marginTop="26dp"
+        android:layout_alignParentTop="true"
         android:onClick="ligthControlOnClick"
-        android:text="On" />
+        android:text="26" />
+<Button
+        android:id="@+id/lamp27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="27" />
+<Button
+        android:id="@+id/lamp28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="28" />
+<Button
+        android:id="@+id/lamp29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="29" />
+<Button
+        android:id="@+id/lamp30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="30" />
+<Button
+        android:id="@+id/lamp31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="31" />
+<Button
+        android:id="@+id/lamp32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="32" />
+<Button
+        android:id="@+id/lamp33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="33" />
+        <Button
+        android:id="@+id/lamp34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="34" />
+<Button
+        android:id="@+id/lamp35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="35" />
+<Button
+        android:id="@+id/lamp36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="ligthControlOnClick"
+        android:text="36" />
+
+<Button
+    android:id="@+id/lamp40"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/all_on"
+    android:layout_marginLeft="59dp"
+    android:layout_marginTop="51dp"
+    android:onClick="ligthControlOnClick"
+    android:text="40" />
+
+<Button
+    android:id="@+id/lamp39"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/all_on"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="104dp"
+    android:onClick="ligthControlOnClick"
+    android:text="39" />
+
+<Button
+    android:id="@+id/lamp37"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_toLeftOf="@+id/all_on"
+    android:onClick="ligthControlOnClick"
+    android:text="37" />
+
+<Button
+    android:id="@+id/lamp1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:onClick="ligthControlOnClick"
+    android:text="1" />
+
+<Button
+    android:id="@+id/lamp2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp1"
+    android:onClick="ligthControlOnClick"
+    android:text="2" />
+
+<Button
+    android:id="@+id/lamp3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp2"
+    android:onClick="ligthControlOnClick"
+    android:text="3" />
+
+<Button
+    android:id="@+id/lamp4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp3"
+    android:onClick="ligthControlOnClick"
+    android:text="4" />
+
+<Button
+    android:id="@+id/lamp5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp4"
+    android:onClick="ligthControlOnClick"
+    android:text="5" />
+
+<Button
+    android:id="@+id/lamp6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp5"
+    android:onClick="ligthControlOnClick"
+    android:text="6" />
+
+<Button
+    android:id="@+id/lamp7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp6"
+    android:onClick="ligthControlOnClick"
+    android:text="7" />
+
+<Button
+    android:id="@+id/lamp8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp7"
+    android:onClick="ligthControlOnClick"
+    android:text="8" />
+
+<Button
+    android:id="@+id/lamp9"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/lamp8"
+    android:onClick="ligthControlOnClick"
+    android:text="9" />
+
+<Button
+    android:id="@+id/lamp38"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/all_on"
+    android:layout_toLeftOf="@+id/all_on"
+    android:onClick="ligthControlOnClick"
+    android:text="38" />
+
+<Button
+    android:id="@+id/lamp10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lamp2"
+    android:layout_toLeftOf="@+id/lamp1"
+    android:onClick="ligthControlOnClick"
+    android:text="10" />
+
+<Button
+    android:id="@+id/lamp11"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lamp3"
+    android:layout_alignLeft="@+id/lamp10"
+    android:onClick="ligthControlOnClick"
+    android:text="11" />
+
+<Button
+    android:id="@+id/lamp12"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp2"
+    android:layout_toLeftOf="@+id/lamp2"
+    android:onClick="ligthControlOnClick"
+    android:text="12" />
+
+<Button
+    android:id="@+id/lamp14"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lamp6"
+    android:layout_toLeftOf="@+id/lamp5"
+    android:onClick="ligthControlOnClick"
+    android:text="14" />
+
+<Button
+    android:id="@+id/lamp13"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp3"
+    android:layout_toLeftOf="@+id/lamp3"
+    android:onClick="ligthControlOnClick"
+    android:text="13" />
+
+<Button
+    android:id="@+id/lamp15"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lamp7"
+    android:layout_toLeftOf="@+id/lamp6"
+    android:onClick="ligthControlOnClick"
+    android:text="15" />
+
+<Button
+    android:id="@+id/lamp16"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp6"
+    android:layout_toLeftOf="@+id/lamp6"
+    android:onClick="ligthControlOnClick"
+    android:text="6" />
+
+<Button
+    android:id="@+id/lamp17"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp7"
+    android:layout_toLeftOf="@+id/lamp7"
+    android:onClick="ligthControlOnClick"
+    android:text="17" />
+
+<Button
+    android:id="@+id/lamp18"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp8"
+    android:layout_toLeftOf="@+id/lamp8"
+    android:onClick="ligthControlOnClick"
+    android:text="18" />
+
+<Button
+    android:id="@+id/all_on"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/lamp11"
+    android:onClick="ligthControlOnClick"
+    android:text="On" />
+
+<Button
+    android:id="@+id/lamp19"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toLeftOf="@+id/lamp10"
+    android:onClick="ligthControlOnClick"
+    android:text="19" />
+
+<Button
+    android:id="@+id/lamp20"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp10"
+    android:layout_toLeftOf="@+id/lamp10"
+    android:onClick="ligthControlOnClick"
+    android:text="20" />
+
+<Button
+    android:id="@+id/lamp21"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lamp13"
+    android:layout_toLeftOf="@+id/lamp12"
+    android:onClick="ligthControlOnClick"
+    android:text="21" />
+
+<Button
+    android:id="@+id/lamp22"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp12"
+    android:layout_toLeftOf="@+id/lamp12"
+    android:onClick="ligthControlOnClick"
+    android:text="22" />
+
+<Button
+    android:id="@+id/all_on"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBaseline="@+id/lamp18"
+    android:layout_alignBottom="@+id/lamp18"
+    android:layout_alignParentLeft="true"
+    android:onClick="ligthControlOnClick"
+    android:text="On" />
+
+<Button
+    android:id="@+id/lamp23"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp13"
+    android:layout_toLeftOf="@+id/lamp14"
+    android:onClick="ligthControlOnClick"
+    android:text="23" />
+
+<Button
+    android:id="@+id/lamp24"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/lamp14"
+    android:layout_toLeftOf="@+id/lamp14"
+    android:onClick="ligthControlOnClick"
+    android:text="24" />
+
+<Button
+    android:id="@+id/all_off"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lamp39"
+    android:layout_alignParentLeft="true"
+    android:onClick="ligthControlOnClick"
+    android:text="OFF" />
 
 </RelativeLayout>

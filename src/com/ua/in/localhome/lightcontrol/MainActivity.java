@@ -14,13 +14,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
-import android.widget.LinearLayout;
 
 public class MainActivity extends Activity implements OnClickListener  {
 
-	boolean[] out ;
+	boolean[] state = new boolean[48];
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener  {
             	ASAS aa = new ASAS();
         		
        			Log.d("test" , "on");
-       	    	aa.execute("ON");
+       	    	aa.execute();
         	    	
             	Log.d("test" , "clik 1"+v.getId());
             	
@@ -39,26 +36,7 @@ public class MainActivity extends Activity implements OnClickListener  {
             }
         };
         
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        int btnid = 0;
-        for (int i = 0; i < 5; i++) {
-            LinearLayout row = new LinearLayout(this);
-            row.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
-
-            for (int j = 0; j < 2; j++) {
-                Button btnTag = new Button(this);
-                btnTag.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                btnTag.setText(" " + (j + 1 + (i * 4 )));
-                btnTag.setId(btnid);
-                btnTag.setOnClickListener(handler);
-                row.addView(btnTag);
-                btnid++;
-            }
-            layout.addView(row);
-        }
-        setContentView(layout);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -74,7 +52,7 @@ public class MainActivity extends Activity implements OnClickListener  {
 
     
     
-    private class ASAS extends AsyncTask<String, Void, Void>{
+    private class ASAS extends AsyncTask<boolean[], Void, Void>{
 
     	
 		@Override
@@ -82,37 +60,18 @@ public class MainActivity extends Activity implements OnClickListener  {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 		}
-
 		@Override
-		protected Void doInBackground(String... task) {
+		protected Void doInBackground(boolean[] ... sendState) {
 			try {
 				final int server_port = 1099;  
 				final DatagramSocket s = new DatagramSocket();  
-				final InetAddress local = InetAddress.getByName("192.168.1.4");  
-
-
-				byte[] messageBytes = new byte[3];
-				messageBytes[0] = (byte) 2;
+				final InetAddress local = InetAddress.getByName("192.168.1.4");
 				
-				if(task[0] == "ON"){
-				    messageBytes[1] = (byte) 255;
-				    messageBytes[2] = (byte) 255;
-				}
-				
-				if(task[0] == "OFF"){
-				    messageBytes[1] = (byte) 0;
-				    messageBytes[2] = (byte) 0;
-				}
-				
-				DatagramPacket p = new DatagramPacket(messageBytes, 3, local, server_port);  
-				  
+				byte[] out = BitArrayToByteArray(sendState[0]);
+				Log.d("tag", "message sent"+sendState[0]);  
+				DatagramPacket p = new DatagramPacket(out, out.length, local, server_port);  
 				s.send(p);  
-				Log.d("tag", "message sent");  
-				  
-				  
 				s.close(); 
-
-			
 			} catch (SocketException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -128,44 +87,70 @@ public class MainActivity extends Activity implements OnClickListener  {
     	
     }
     
-    private byte[] boolsAsBytes(boolean[] data) {
-    	byte[] out = new byte[(data.length / 8) + 2];
-    	out[0] = (byte) (out.length - 1);
-    	
-    	for (int i = 0, j = out.length, k = 7; i < data.length; i++) {
-    		out[j] |= (data[i] ? 1 : 0) << k--;
-    	    if (k < 0) {
-    	    	j++;
-    	    	k = 7;
-    	    }
-    	}
-    	return out;
+
+    public static byte[] BitArrayToByteArray(boolean[] bits){
+      int bytesize = bits.length / 7;
+      if (bits.length % 7 > 0)
+        bytesize++;
+
+      // For the result
+      byte[] bytes = new byte[bytesize];
+      byte value = 0;
+      byte significance = 1;
+
+      // Remember where in the input/output arrays
+      int bytepos = 0;
+      int bitpos = 0;
+
+      while (bitpos < bits.length)
+      {
+        // If the bit is set add its value to the byte
+        if (bits[bitpos])
+          value += significance;
+
+        bitpos++;
+
+        if (bitpos % 7 == 0){
+          bytes[bytepos] = value;
+          bytepos++;
+          value = 0;
+          significance = 1;
+        }
+        else
+        {
+          // Another bit processed, next has doubled value
+          significance *= 2;
+        }
+      }
+      bytes[0]=(byte)2;
+      return bytes;
     }
+
     
     public void ligthControlOnClick(View v){
-    	
     	ASAS aa = new ASAS();
 		
 		switch (v.getId()) {
 		case R.id.all_on:
+			for (int i = 0; i < state.length; i++) {
+				state[i] = true;
+	    	}
 			Log.d("test" , "on");
-	    	aa.execute("ON");
+	    	aa.execute(state);
 			break;
 		case R.id.all_off:
-	    	aa.execute("OFF");
+			for (int i = 0; i < state.length; i++) {
+				state[i] = false;
+	    	}
+	    	aa.execute(state);
 			Log.d("test" , "off");
 			break;
 		}
-    	
-		
 	}
 
 	@Override
-	public void onClick(View v) {
-		
-    	Log.d("test" , "clik 1");
+	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		
 	}
-    
 }
