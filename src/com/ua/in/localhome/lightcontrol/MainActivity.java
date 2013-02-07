@@ -65,11 +65,12 @@ public class MainActivity extends Activity implements OnClickListener  {
 			try {
 				final int server_port = 1099;  
 				final DatagramSocket s = new DatagramSocket();  
-				final InetAddress local = InetAddress.getByName("192.168.1.4");
+//				final InetAddress local = InetAddress.getByName("192.168.1.4");
+				final InetAddress local = InetAddress.getByName("10.0.1.12");
 				
 				byte[] out = BitArrayToByteArray(sendState[0]);
-				Log.d("tag", "message sent"+sendState[0]);  
-				DatagramPacket p = new DatagramPacket(out, out.length, local, server_port);  
+				Log.d("tag", "message sent"+out+" "+out.length  );  
+				DatagramPacket p = new DatagramPacket(out, out.length, local, server_port);
 				s.send(p);  
 				s.close(); 
 			} catch (SocketException e) {
@@ -102,27 +103,25 @@ public class MainActivity extends Activity implements OnClickListener  {
       int bytepos = 0;
       int bitpos = 0;
 
-      while (bitpos < bits.length)
-      {
+      while (bitpos < bits.length){
         // If the bit is set add its value to the byte
-        if (bits[bitpos])
-          value += significance;
-
+        if(bits[bitpos]){
+        	value += significance;
+        }
+        
         bitpos++;
 
         if (bitpos % 7 == 0){
-          bytes[bytepos] = value;
-          bytepos++;
-          value = 0;
+        	bytes[bytepos] = value;
+        	bytepos++;
+        	value = 0;
           significance = 1;
-        }
-        else
-        {
+        }else{
           // Another bit processed, next has doubled value
           significance *= 2;
         }
       }
-      bytes[0]=(byte)2;
+      bytes[0]=(byte) (bytes.length -1) ;
       return bytes;
     }
 
