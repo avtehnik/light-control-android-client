@@ -367,7 +367,7 @@
 
 <Button
     android:id="@+id/lamp24"
-    android:layout_width="wrap_content"
+    android:layout_width="10dp"
     android:layout_height="wrap_content"
     android:layout_below="@+id/lamp14"
     android:layout_toLeftOf="@+id/lamp14"

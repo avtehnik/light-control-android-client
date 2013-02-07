@@ -17,7 +17,7 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity implements OnClickListener  {
 
-	boolean[] state = new boolean[48];
+	boolean[] state = new boolean[47];
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,17 +109,17 @@ public class MainActivity extends Activity implements OnClickListener  {
         	value += significance;
         }
         
-        bitpos++;
-
         if (bitpos % 7 == 0){
         	bytes[bytepos] = value;
         	bytepos++;
-        	value = 0;
-          significance = 1;
+     //   	value = 0;
+        	significance = 1;
         }else{
           // Another bit processed, next has doubled value
           significance *= 2;
         }
+        bitpos++;
+
       }
       bytes[0]=(byte) (bytes.length -1) ;
       return bytes;
