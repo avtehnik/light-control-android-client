@@ -4,5 +4,7 @@
     <string name="app_name">Light control</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="lampOn">1</string>
+    <string name="lampOff">0</string>
 
 </resources>
